@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Examination System</title>
+
+    <link rel="stylesheet" href="/static/css/teacher_add_questions.css">
+</head>
+
+<body>
+    <div id="main">
+        <div id="navbar">
+
+
+            <nav>
+                <div class="logo">Online Examination</div>
+
+                <ul class="menu-area">
+                    <li><a href="http://localhost:8000/">Home</a></li>
+                    <!-- <li><a href="http://localhost:8000/exam/teacher_login_signup/">Teacher</a></li>
+                    <li><a href="http://localhost:8000/exam/student_login_signup/">Student</a></li>
+                    <li><a href="http://localhost:8000/admin/">Admin</a></li> -->
+                    <!-- <li><a href="">Contact</a></li> -->
+                </ul>
+            </nav>
+
+
+        </div>
+
+
+        <div id="center">
+
+
+
+            <div id="left">
+
+                <aside>
+
+                    <!-- <div id="user-image">Image</div> -->
+                    <br>
+                    <div id="user-information">
+                        <div>{{request.session.realname}}</div>
+                        <div>(Teacher)</div>
+                    </div>
+                    <br>
+
+
+                    <ul id="left-menu">
+
+
+
+                        <li><a href="http://localhost:8000/exam/teacher_after_login/"><i
+                                    class="fa-solid fa-gauge-high fa-2x"></i> <br> Dashboard</a></li>
+                        <br>
+                        <li><a href="http://localhost:8000/exam/teacher_add_courses/"> <i
+                                    class="fa-solid fa-book fa-2x"></i><br> Manage Courses</a></li>
+                        <br>
+                        <li><a href="http://localhost:8000/exam/teacher_add_questions/"><i
+                                    class="fa-solid fa-circle-question fa-2x"></i> <br> Manage Questions</a></li>
+
+                    </ul>
+
+                </aside>
+
+
+
+
+
+            </div>
+
+            <div id="right">
+                <div id="content">
+
+                    <div class="registration-form">
+                        <h1>Add Question</h1>
+
+                        <form action="http://localhost:8000/exam/save_questions/" method="POST">
+                            {%csrf_token%}
+                            <!--section  -->
+                            <select name="section" id="" required>
+                                <option value="A" >Section A</option>
+                                <option value="B" >Section B</option>
+                            </select>
+
+                            <!-- <p>Question </p> -->
+                            <!-- <input type="text" name="question" placeholder="Question" required> -->
+
+                            <textarea name="question" id="" cols="30" rows="5" placeholder="Question ?" required></textarea>
+
+
+                            <input type="text" name="coursename" placeholder="Course Name" required >
+                            <!-- <p>Marks </p> -->
+                            <input type="number" name="marksassigned" placeholder="Marks" required>
+                            
+
+                            <!-- <p>Option A</p> -->
+                            <input type="text" name="optiona" placeholder="Option A" required>
+                            <!-- <p>Option B</p> -->
+                            <input type="text" name="optionb" placeholder="Option B" required>
+                            <!-- <p>Option C</p> -->
+                            <input type="text" name="optionc" placeholder="Option C" required>
+                            <!-- <p>Option D</p> -->
+                            <input type="text" name="optiond" placeholder="Option D" required>
+
+
+                            <div>
+
+                                <p>Answer</p>
+
+                                <select name="answer" id="" required>
+                                    <option value="a" >Option A</option>
+                                    <option value="b" >Option B</option>
+                                    <option value="c" >Option C</option>
+                                    <option value="d" >Option D</option>
+                                </select>
+
+
+                            </div>
+
+
+
+
+
+
+                            <button type="submit">Save <i class="fa-solid fa-floppy-disk"></i></button>
+
+                        </form>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="footer">
+            <div id="footer-text">
+                Online Examination System
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Font awesome kit -->
+    <script src="https://kit.fontawesome.com/ac12e87ac4.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

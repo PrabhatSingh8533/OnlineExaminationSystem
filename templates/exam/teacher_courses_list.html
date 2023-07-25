@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Examination System</title>
+
+    <link rel="stylesheet" href="/static/css/teacher_courses_list.css">
+</head>
+
+<body>
+    <div id="main">
+        <div id="navbar">
+
+
+            <nav>
+                <div class="logo">Online Examination</div>
+
+                <ul class="menu-area">
+                    <li><a href="http://localhost:8000/">Home</a></li>
+                    <!-- <li><a href="http://localhost:8000/exam/teacher_login_signup/">Teacher</a></li>
+                    <li><a href="http://localhost:8000/exam/student_login_signup/">Student</a></li>
+                    <li><a href="http://localhost:8000/admin/">Admin</a></li> -->
+                    <!-- <li><a href="">Contact</a></li> -->
+                </ul>
+            </nav>
+
+
+        </div>
+
+
+        <div id="center">
+
+
+
+            <div id="left">
+
+                <aside>
+
+                    <!-- <div id="user-image">Image</div> -->
+                    <br>
+                    <div id="user-information">
+                        <div>{{request.session.realname}}</div>
+                        <div>(Teacher)</div>
+                    </div>
+                    <br>
+
+
+                    <ul id="left-menu">
+
+
+
+                        <li><a href="http://localhost:8000/exam/teacher_after_login/"><i
+                                    class="fa-solid fa-gauge-high fa-2x"></i> <br> Dashboard</a></li>
+                        <br>
+                        <li><a href="http://localhost:8000/exam/teacher_add_courses/"> <i
+                                    class="fa-solid fa-book fa-2x"></i><br> Manage Courses</a></li>
+                        <br>
+                        <li><a href="http://localhost:8000/exam/teacher_add_questions/"><i
+                                    class="fa-solid fa-circle-question fa-2x"></i> <br> Manage Questions</a></li>
+
+                    </ul>
+
+                </aside>
+
+
+
+
+
+            </div>
+
+            <div id="right">
+                <div id="content">
+
+                    <h1>Courses List</h1>
+
+
+
+                    <table>
+                        <tr>
+                            
+                            <th>Name</th>
+                        </tr>
+
+                        {% for course in courses%}
+                        <tr>
+                           
+                            <td> {{course.coursename}} </td>
+                        </tr>
+                        {%endfor%}
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="footer">
+            <div id="footer-text">
+                Online Examination System
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Font awesome kit -->
+    <script src="https://kit.fontawesome.com/ac12e87ac4.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

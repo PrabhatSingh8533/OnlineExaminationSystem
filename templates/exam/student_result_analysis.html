@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Examination System</title>
+
+    <link rel="stylesheet" href="/static/css/student_result_analysis.css">
+
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+    <!-- <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet"> -->
+    <!-- <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet"> -->
+    <style type="text/css">
+        #container {
+            /* top: 10%; */
+            /* position: relative; */
+            width: 800px;
+            height: 500px;
+            margin-left: 200px;
+            /* margin: auto; */
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="navbar">
+
+
+            <nav>
+                <div class="logo">Online Examination</div>
+
+                <ul class="menu-area">
+                    <li><a href="http://localhost:8000/">Home</a></li>
+
+                </ul>
+            </nav>
+
+
+        </div>
+
+
+        <div id="center">
+
+
+
+            <div id="left">
+
+                <aside>
+
+                    <!-- <div id="user-image">Image</div> -->
+                    <br>
+                    <div id="user-information">
+                        <div>{{request.session.realname}}</div>
+                        <div>(Student)</div>
+                    </div>
+                    <br>
+
+
+                    <ul id="left-menu">
+
+
+
+                        <li><a href="http://localhost:8000/exam/student_after_login/"><i
+                                    class="fa-solid fa-gauge-high fa-2x"></i> <br> Dashboard</a></li>
+                        <br>
+                        <li><a href="http://localhost:8000/exam/student_available_exams/"><i
+                                    class="fa-solid fa-paste fa-2x"></i> <br> Examination</a></li>
+                        <br>
+                        <!-- <li><a href="http://localhost:8000/exam/student_result/"><i
+                                    class="fa-solid fa-arrow-up-right-dots fa-2x"></i><br> My Marks</a></li> -->
+
+                    </ul>
+
+                </aside>
+
+
+
+
+
+            </div>
+
+            <div id="right">
+                <div id="content">
+
+
+
+
+                    <h1>Test result</h1>
+                    <table>
+                        <tr>
+                            <th>Total Questions : </th>
+                            <td>{{total_questions}}</td>
+                        </tr>
+                        <tr>
+                            <th>Total Attempt : </th>
+                            <td>{{total_attempt}}</td>
+
+                        </tr>
+                        <tr>
+                            <th>Total Right : </th>
+                            <td>{{total_right}}</td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Total Wrong :
+                            </th>
+                            <td>{{total_wrong}}</td>
+                        </tr>
+                        <tr>
+                            <th>Total Marks : </th>
+                            <td>{{total_marks}}</td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Marks Obtained :
+                            </th>
+                            <td>{{marks_obtained}}</td>
+                        </tr>
+                    </table>
+
+
+
+                    <div id="container"></div>
+
+
+                    <script>
+
+                        anychart.onDocumentReady(function () {
+
+                            var total_right = "{{ total_right|escapejs }}";
+                            var total_wrong = "{{ total_wrong|escapejs }}";
+                            var unattempted = "{{unattempted|escapejs}}";
+
+                            // set the data
+                            var data = [
+                                { x: "Total Right", value: total_right, exploded: true },
+                                { x: "Total Wrong", value: total_wrong },
+                                { x: "Unattempted", value: unattempted }
+
+                            ];
+
+                            // create the chart
+                            var chart = anychart.pie();
+
+                            // set the chart title
+                            // chart.title('Result Analysis through pie chart');
+
+
+
+                            // add the data
+                            chart.data(data);
+
+                            // sort elements
+                            // chart.sort('desc');
+
+                            // set legend position
+                            chart.legend().position('right');
+                            // set items layout
+                            chart.legend().itemsLayout('vertical');
+
+                            // display the chart in the container
+                            chart.container('container');
+                            chart.draw();
+                        });
+
+                    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="footer">
+            <div id="footer-text">
+                Online Examination System
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Font awesome kit -->
+    <script src="https://kit.fontawesome.com/ac12e87ac4.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

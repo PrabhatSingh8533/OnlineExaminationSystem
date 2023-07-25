@@ -1,0 +1,388 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+
+/* **************************************BODY********************************************************* */
+body {
+    font-family: sans-serif;
+    /* height: 100%; */
+    /* height: 1000px; */
+    /* position: relative; */
+
+}
+
+
+/* ***************************************MAIN********************************************************* */
+#main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+/* ************************************NAVIAGATION BAR************************************************** */
+#navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+nav {
+    /* position:relative; */
+    /* width: calc(100% - 60px); */
+    /* margin: 0 auto;
+    padding: 10px 0; */
+    background: #333;
+    /* text-align: right; */
+    /* padding-right: 2%; */
+
+    /* padding:10px; */
+
+
+
+}
+
+
+.logo {
+    width: 100%;
+    /* float: left; */
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 25px;
+    text-align: left;
+    padding: 10px 5px;
+    font-family: cursive;
+    /* padding-left: 2%; */
+
+}
+
+/* .menu-area li {
+    display: inline-block;
+}
+
+li a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    padding: 0 25px;
+    font-size: 14px;
+    line-height: 30px;
+    
+    z-index: 1;
+}
+
+a:hover {
+    background: tomato;
+    color: #fff;
+} */
+
+
+
+
+
+
+
+/* *******************************************CENTER************************************************* */
+#center {
+    display: flex;
+    flex-direction: row;
+
+    margin-bottom: 3.3%;
+
+    /* border: 2px solid red; */
+    width: 100%;
+
+}
+
+
+
+
+#left {
+
+    width: fit-content;
+
+}
+
+
+
+#left li a {
+    line-height: 25px;
+}
+
+aside {
+    border: 1px solid black;
+    height: 100%;
+
+
+
+    color: white;
+    margin: 0 auto;
+    padding: 30px 0;
+    background: #333;
+    z-index: -1;
+    text-align: center;
+
+}
+
+#user-image {
+    line-height: 25px;
+}
+
+
+#user-information {
+    line-height: 25px;
+    margin: 20px;
+}
+
+
+#right {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+
+    /* border: 4px solid red; */
+
+    width: 100%;
+
+    /* border: 2px solid green; */
+
+
+
+}
+
+#content {
+    word-break: break-all;
+
+    width: 100%;
+
+    /* border: 2px solid skyblue; */
+    position: relative;
+
+}
+
+#content h1 {
+    text-align: center;
+}
+
+
+#content a {
+    color: lightseagreen;
+    text-decoration: none;
+}
+
+#content a:hover {
+    color: white;
+}
+
+
+
+#timer-div-with-icon {
+    display: flex;
+    flex-direction: row;
+
+    /* border: 4px solid red; */
+    box-shadow: 2px 2px 10px rgba(9, 28, 28, 0.5);
+    border-radius: 0.5rem;
+    justify-content: center;
+    align-content: center;
+    position: fixed;
+    right: 40px;
+    z-index: 50;
+
+    background-color: red;
+    color: white;
+    padding: 2px;
+
+}
+
+#quiz-time-left {
+
+    /* border: 1px solid black; */
+    padding: 2px;
+    /* position: absolute;
+    right: 40px; */
+
+}
+
+.question {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* border: 1px solid purple; */
+    box-shadow: 2px 2px 10px rgba(9, 28, 28, 0.5);
+    border-radius: 0.5rem;
+    padding: 1%;
+    position: relative;
+}
+
+#marks {
+    position: absolute;
+    right: 2%;
+    font-size: small;
+
+    /* border: 1px solid black; */
+    background-color: grey;
+    color: white;
+    padding: 4px;
+    border-radius: 12px;
+}
+
+
+button {
+    width: 30%;
+    margin-left: 35%;
+    /* background-color: #2fa5e8; */
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    padding: 5px;
+    font-size: larger;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+
+button:hover {
+    box-shadow: 2px 2px 10px rgba(3, 108, 43, 0.5);
+}
+
+
+/* Abhi Add kiya hai multi step form ke liye */
+.card {
+    background-color: white;
+    /* border: 1px solid #333; */
+    border-radius: .5rem;
+    padding: 1rem;
+    /* max-width: 300px; */
+    /* margin: 0 auto; */
+    animation: fade 250ms ease-in-out forwards;
+
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+
+
+    box-shadow: 2px 2px 10px rgba(9, 28, 28, 0.5);
+
+
+    /* text-align: center; */
+
+}
+
+.card h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5rem;
+    gap: .25em;
+}
+
+.form-group:last-child {
+    margin: 0;
+}
+
+.form-group>label {
+    font-weight: bold;
+    font-size: .8em;
+    color: #333;
+}
+
+.form-group>input {
+    border: 1px solid #333;
+    border-radius: .25em;
+    font-size: 1rem;
+    padding: .25em;
+}
+
+.step-title {
+    margin: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.card.active {
+    animation: slide 250ms 125ms ease-in-out both;
+}
+
+.multi-step-form {
+    overflow: hidden;
+    position: relative;
+}
+
+.hide {
+    display: none;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(200%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(.75);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+
+
+
+
+/* **********************************************FOOTER*************************************************** */
+#footer {
+
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    z-index: 10;
+}
+
+#footer-text {
+    border: 1px solid black;
+    color: white;
+    margin: 0 auto;
+    padding: 1% 0;
+    background: #333;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+}

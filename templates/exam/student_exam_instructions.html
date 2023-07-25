@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Examination System</title>
+
+    <link rel="stylesheet" href="/static/css/student_exam_instructions.css">
+</head>
+
+<body>
+    <div id="main">
+        <div id="navbar">
+
+
+            <nav>
+                <div class="logo">Online Examination</div>
+
+                <ul class="menu-area">
+                    <li><a href="http://localhost:8000/">Home</a></li>
+
+                </ul>
+            </nav>
+
+
+        </div>
+
+
+        <div id="center">
+
+
+
+            <div id="left">
+
+                <aside>
+
+                    <!-- <div id="user-image">Image</div> -->
+                    <br>
+                    <div id="user-information">
+                        <div>{{request.session.realname}}</div>
+                        <div>(Student)</div>
+                    </div>
+                    <br>
+
+
+                    <ul id="left-menu">
+
+
+
+                        <li><a href="http://localhost:8000/exam/student_after_login/"><i
+                                    class="fa-solid fa-gauge-high fa-2x"></i> <br> Dashboard</a></li>
+                        <br>
+                        <li><a href="http://localhost:8000/exam/student_available_exams/"><i
+                                    class="fa-solid fa-paste fa-2x"></i> <br> Examination</a></li>
+                        <br>
+                        <!-- <li><a href="http://localhost:8000/exam/student_result/"><i
+                                    class="fa-solid fa-arrow-up-right-dots fa-2x"></i><br> My Marks</a></li> -->
+
+                    </ul>
+
+                </aside>
+
+
+
+
+
+            </div>
+
+            <div id="right">
+                <div id="content">
+
+                    <h1>Exam Details</h1>
+                    <!-- <br> -->
+                    <ol>
+
+                        <li> <b>Course</b> : {{request.session.course}}</li>
+                        <li> <b>Total Question</b> : {{totalques}}</li>
+                        <li> <b>Total Question in Section A</b> : {{sectionA_no}}</li>
+                        <li> <b>Total Question in Section B</b> : {{sectionB_no}}</li>
+                        <li> <b>Total Marks </b> : {{totalmarks}}</li>
+                        <li><b>Total Time </b> : {{totaltime}} Minutes</li>
+                        <li><b>Negative Marking </b> : {{negative_marking}}</li>
+                    </ol>
+
+                    <br>
+
+
+                    <ol id="guidelines">
+                        <h1>Rules : </h1>
+                        <!-- <br> -->
+                        <li style="color: red;"><i class="fa-solid fa-cube"></i> Your exam paper will be submitted
+                            automatically if you take the cursor out of page.</li>
+                        <li><i class="fa-solid fa-cube"></i> All Questions are MCQ (Multiple Choice Question).</li>
+                        <li><i class="fa-solid fa-cube"></i> Only Choice is correct among the given.</li>
+                        <li><i class="fa-solid fa-cube"></i> Every Question carry different marks.</li>
+                        <li><i class="fa-solid fa-cube"></i> Try to answer ASAP.</li>
+                        <li><i class="fa-solid fa-cube"></i> If you press Refresh or go back to the previous page, there
+                            will be a new question for you
+                            and the question you were on will be counted as number of attempts.</li>
+                        <li><i class="fa-solid fa-cube"></i> Questions are presented randomly.</li>
+                        <li><i class="fa-solid fa-cube"></i> You will be able to view marks immediately once after you
+                            submit the answer.</li>
+                    </ol>
+
+                    <br>
+
+
+                    <div id="enter-exam-div">
+                        <a
+                            href="http://localhost:8000/exam/student_exam_page?examname={{request.session.course}}&sectionAtotalque={{sectionA_no}}&sectionBtotalque={{sectionB_no}}">Enter
+                            Examination <i class="fa-solid fa-circle-right "></i></a>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="footer">
+            <div id="footer-text">
+                Online Examination System
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Font awesome kit -->
+    <script src="https://kit.fontawesome.com/ac12e87ac4.js" crossorigin="anonymous"></script>
+    <script>
+
+        var scheduled_time = "{{exam_time_scheduled|escapejs}}";
+        var current_time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
+
+
+        // if (scheduled_time <= current_time) {
+        //     document.getElementById("enter-exam-div").style.visibility = "visible";
+
+        // }
+        // else {
+        //     document.getElementById("enter-exam-div").style.visibility = "hidden";
+        // }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

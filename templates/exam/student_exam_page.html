@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Examination System</title>
+
+    <link rel="stylesheet" href="/static/css/student_exam_page.css">
+    <script src="/static/js/script.js" defer></script>
+
+</head>
+
+<body>
+    <div id="main">
+        <div id="navbar">
+
+
+            <nav>
+                <div class="logo">Online Examination</div>
+
+
+            </nav>
+
+
+        </div>
+
+
+        <div id="center">
+
+
+
+
+            <div id="right">
+                <div id="content">
+
+
+                    <div id="timer-div-with-icon">
+
+                        <div><i class="fa-solid fa-stopwatch"></i></div>
+                        <div style="font-weight: bold" id="quiz-time-left"></div>
+                    </div>
+
+
+                    <div id="course-title">
+
+                        <h1>Course : {{request.session.course}}</h1>
+                    </div>
+
+                    <div id="Questions">
+
+                        <form name="quiz"
+                            action="http://localhost:8000/exam/student_result/?course={{request.session.course}}"
+                            method="POST" data-multi-step class="multi-step-form">
+                            <div class="card" data-step>
+                                <h1>Section A</h1>
+                                {% for question in questions_list_section_A %}
+                                <div class="question">
+                                    <input type="hidden" name="qno{{question.qnos}}" value="{{question.qnos}}">
+                                    <div class="que">
+                                        <b> Question - </b>{{question.ques}} <p id="marks">Marks : {{question.marks}}
+                                        </p>
+                                    </div>
+                                    <div class="option"><input type="radio" name="q{{question.qnos}}"
+                                            value="a">{{question.optA}}</div>
+                                    <div class="option"><input type="radio" name="q{{question.qnos}}"
+                                            value="b">{{question.optB}}</div>
+                                    <div class="option"><input type="radio" name="q{{question.qnos}}"
+                                            value="c">{{question.optC}}</div>
+                                    <div class="option"><input type="radio" name="q{{question.qnos}}"
+                                            value="d">{{question.optD}}</div>
+                                </div>
+                                {% endfor %}
+
+
+                                <button type="button" data-next>NEXT <i class="fa-solid fa-angles-right"></i></button>
+                            </div>
+
+                            <div class="card" data-step>
+                                <h1>Section B</h1>
+                                {% for question in questions_list_section_B %}
+                                <div class="question">
+                                    <input type="hidden" name="qno{{question.qnos}}" value="{{question.qnos}}">
+                                    <div class="que">
+                                        <b> Question - </b>{{question.ques}} <p id="marks">Marks:{{question.marks}}</p>
+                                    </div>
+                                    <div class="option"><input type="radio" name="q{{question.qnos}}"
+                                            value="a">{{question.optA}}</div>
+                                    <div class="option"><input type="radio" name="q{{question.qnos}}"
+                                            value="b">{{question.optB}}</div>
+                                    <div class="option"><input type="radio" name="q{{question.qnos}}"
+                                            value="c">{{question.optC}}</div>
+                                    <div class="option"><input type="radio" name="q{{question.qnos}}"
+                                            value="d">{{question.optD}}</div>
+                                </div>
+                                {% endfor %}
+
+                                <button type="submit">Submit</button>
+                            </div>
+                        </form>
+
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="footer">
+            <div id="footer-text">
+                Online Examination System
+            </div>
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript">
+        var max_time = "{{ totaltime|escapejs }}";
+        var c_seconds = 0;
+        var total_seconds = 60 * max_time;
+        max_time = parseInt(total_seconds / 60);
+        c_seconds = parseInt(total_seconds % 60);
+        document.getElementById("quiz-time-left").innerHTML = 'Time Left: ' + max_time + ' minutes ' + c_seconds + ' seconds';
+        function init() {
+            document.getElementById("quiz-time-left").innerHTML = 'Time Left: ' + max_time + ' minutes ' + c_seconds + ' seconds';
+            // setTimeout("CheckTime()",0);
+            CheckTime();
+        }
+        function CheckTime() {
+            document.getElementById("quiz-time-left").innerHTML = 'Time Left: ' + max_time + ' minutes ' + c_seconds + ' seconds';
+            if (total_seconds <= 0) {
+                setTimeout('document.quiz.submit()', 1);
+
+            } else {
+                total_seconds = total_seconds - 1;
+                max_time = parseInt(total_seconds / 60);
+                c_seconds = parseInt(total_seconds % 60);
+                setTimeout("CheckTime()", 1000);
+            }
+
+        }
+        init();
+
+        document.onmouseleave = function () {
+            document.quiz.submit();
+            // var timer = 10;
+            // while (timer > 0) {
+            //     timer--;
+            //     document.quiz.submit();
+            // }
+            // alert('Take the cursor inside of the Exam Page , otherwise your exam will be submitted automatically within ' + timer + 'seconds');
+        }
+    </script>
+
+
+    <!-- Font awesome kit -->
+    <script src="https://kit.fontawesome.com/ac12e87ac4.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

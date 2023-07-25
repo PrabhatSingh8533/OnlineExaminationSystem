@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Examination System</title>
+
+    <link rel="stylesheet" href="/static/css/teacher_login.css">
+</head>
+
+<body>
+    <div id="main">
+        <div id="navbar">
+
+
+            <nav>
+                <div class="logo">Online Examination</div>
+
+                <ul class="menu-area">
+                    <li><a href="http://localhost:8000/">Home</a></li>
+                    <!-- <li><a href="http://localhost:8000/exam/teacher_login_signup/">Teacher</a></li>
+                    <li><a href="http://localhost:8000/exam/student_login_signup/">Student</a></li>
+                    <li><a href="http://localhost:8000/admin/">Admin</a></li> -->
+                    <!-- <li><a href="">Contact</a></li> -->
+                </ul>
+            </nav>
+
+
+        </div>
+
+
+        <div id="center">
+
+
+
+
+
+
+            <div id="content">
+
+
+                <div class="center">
+                    <h1>Teacher Login</h1>
+                    <form action="http://localhost:8000/exam/teacher_login_validation/" method="post">
+                        {% csrf_token %} 
+                        <div class="txt_field">
+                            <input type="text" name="username" required>
+                            <span></span>
+                            <label>Username</label>
+                        </div>
+                        <div class="txt_field">
+                            <input type="password" name="password" required>
+                            <span></span>
+                            <label>Password</label>
+                        </div>
+                        <!-- <div class="pass">Forgot Password?</div> -->
+                        <input type="submit" name="Login" value="Login">
+                        
+                    </form>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+        </div>
+
+
+        <div id="footer">
+            <div id="footer-text">
+                Online Examination System
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Font awesome kit -->
+    <script src="https://kit.fontawesome.com/ac12e87ac4.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

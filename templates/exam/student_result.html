@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Examination System</title>
+    <link rel="stylesheet" href="/static/css/student_available_exams.css">
+</head>
+
+<body>
+
+    <div id="main">
+        <nav>
+            <div id="nav-left">
+                <h1>Online Examination</h1>
+
+            </div>
+            <div id="nav-right">
+
+                <div id="red-button">
+                    <p>Logout</p>
+                </div>
+
+            </div>
+        </nav>
+
+
+        <div id="central-content">
+
+            <div id="left-div">
+                <div>
+                    <p>{{request.session.realname}}</p>
+                    <p>(Student)</p>
+                </div>
+                <div>
+                    <a href="http://localhost:8000/exam/student_after_login/">Dashboard</a>
+                </div>
+                <div>
+                    <a href="http://localhost:8000/exam/student_avilable_exams/">Examination</a>
+                </div>
+                <div>
+                    <a href="http://localhost:8000/exam/student_result/">My Marks</a>
+                </div>
+            </div>
+
+
+            <div id="right-div">
+                <div id="main-content">
+                    <h1>View Marks</h1>
+                    <div>
+                        <table>
+                            <tr>
+                                <th>Exam Name</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <td>Python</td>
+                                <td>
+                                    <a href="http://localhost:8000/exam/student_result_analysis/">View Marks</a>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+
+                </div>
+                <div id="footer">
+                    <p>Online Examination System</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
